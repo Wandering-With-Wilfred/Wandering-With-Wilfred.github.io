@@ -1,0 +1,219 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: blanchedalmond;
+    text-align: center;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 100px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 10px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+header {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+section {
+    width: 48%;
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Add this style to center all h2 headings */
+section h2 {
+    text-align: center;
+}
+
+/* Style for the shop section */
+#shop {
+    
+    /* Add any specific styles for the shop section */
+}
+
+/* Style for the shop list */
+.shop-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for the shop list */
+.shop-list ul{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+}
+
+.shop-list li {
+    margin: 0 15px 15px 0; 
+    padding: 5px;
+    text-align: center; 
+} 
+.shop-list a {
+    text-decoration: none; 
+    color: #000; 
+}
+
+.shop-list .container {
+    position: relative;
+  text-align: center;
+}
+
+.shop-list .centered { 
+  border: 1px solid grey;
+  border-radius: 60px;
+  background-image: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,1));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding:10px;
+}
+
+/* Style for each shop item */
+/*
+.shop-list li {
+    max-width: 100%;
+    display: inline-block;
+    margin-right: 20px; 
+}
+*/
+
+/* Style for section images */
+
+.bordered {
+    border: 4px solid #333; /* You can adjust the border width and color */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.section-image {
+    max-width: 75%;
+    height: auto;
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.section-shop-image {
+    border-radius: 20px;
+}
+
+.contact-image  {
+    max-width: 75%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* New CSS for the YouTube container */
+.youtube-container {
+    width: 48%;
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.youtube-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.footer-section {
+    width: 25%;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    color: slateblue;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-bottom {
+    background-color: #222;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-bottom p {
+    margin: 0;
+}

@@ -1,0 +1,120 @@
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 100px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 10px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Basic styling for layout */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start; /* Align items to the top */
+        }
+
+        .image {
+            max-width: 500px;
+            width: 100%; /*
+            margin-right: 20px; 
+            max-height: 350px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px; /* Adjust top margin */
+            margin-bottom: 10px; /* Adjust bottom margin */
+        }
+
+        h1 {
+            font-size: 48px; /* Font size for h1 - two times bigger than the default h1 */
+            margin-bottom: 10px; /* Adjust bottom margin */
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-top: 0; /* Reset top margin */
+            margin-bottom: 10px; /* Adjust bottom margin */
+        }
+
+        h3 {
+            margin-top: 0; /* Reset top margin */
+            margin-bottom: 5px; /* Adjust bottom margin */
+        }
+
+        select {
+            margin-top: 5px; /* Adjust top margin for the select element */
+            width: 400px;
+            font-size: 18px;
+            padding: 10px;
+        }
+
+        input {
+            padding: 10px;
+            width: 40px;
+        }
+
+        label {
+            padding: 5px;
+        }
+
+        button {
+            margin-top: 5px;
+            background-color: blue;
+            color: white;
+            width: 400px;
+            height: 45px;
+            padding: 5px;
+            border-style: hidden;
+        }
+
+        p {
+            max-width: 450px;
+            margin-top: 0; /* Reset top margin */
+            padding: 5px;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column; /* Display as a column */
+            padding: 10px;
+        }
