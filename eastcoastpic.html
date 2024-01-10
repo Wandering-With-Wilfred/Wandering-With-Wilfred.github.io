@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image and Select Example</title>
+    <style>
+        /* Basic styling for layout */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    
+        .container {
+            display: flex;
+            align-items: flex-start; /* Align items to the top */
+        }
+    
+        .image {
+            max-width: 500px; /* Set maximum width for the image */
+            width: 100%; /* Make sure the image doesn't exceed the container */
+            margin-right: 20px; /* Margin to separate the image and content */
+            min-height: 350px;
+        }
+    
+        .content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px; /* Adjust top margin */
+            margin-bottom: 10px; /* Adjust bottom margin */
+        }
+    
+        h1 {
+            font-size: 48px; /* Font size for h1 - two times bigger than the default h1 */
+            margin-bottom: 10px; /* Adjust bottom margin */
+        }
+    
+        h2 {
+            font-size: 30px;
+            margin-top: 0; /* Reset top margin */
+            margin-bottom: 10px; /* Adjust bottom margin */
+        }
+    
+        h3 {
+            margin-top: 0; /* Reset top margin */
+            margin-bottom: 5px; /* Adjust bottom margin */
+        }
+    
+        select {
+            margin-top: 5px; /* Adjust top margin for the select element */
+            width: 400px;
+            font-size: 18px;
+            padding: 10px;
+        }
+    
+        input {
+            padding: 10px;
+            width: 40px;
+        }
+    
+        label {
+            padding: 5px;
+        }
+    
+        button {
+            margin-top: 5px;
+            background-color: blue;
+            color: white;
+            width: 400px;
+            height: 45px;
+            padding: 5px;
+            border-style: hidden;
+        }
+    
+        p {
+            max-width: 450px;
+            margin-top: 0; /* Reset top margin */
+            padding: 5px;
+        }
+    
+        .image-container {
+            display: flex;
+            flex-direction: column; /* Display as a column */
+            padding: 10px;
+        }
+    </style>
+    
+</head>
+<body>
+<div class="container">
+    <div class="image-container">
+    <img src="images/eastcoast.jpg" alt="Sample Image" class="image">
+    <p>The East Coast Trail picture captures the serene beauty of the coastline, where rugged cliffs meet the vast expanse of the ocean. The photograph invites viewers to immerse themselves in the breathtaking scenery, showcasing the juxtaposition of crashing waves against weathered rocks.</p>
+    <p>The image portrays a sense of tranquility and adventure, inviting one to wander along the coastal paths, discovering hidden coves and stunning vistas. It's a snapshot that encapsulates the essence of exploration and the raw, unspoiled beauty of the East Coast's natural landscapes, inviting viewers to embark on their own journey of discovery along these captivating shores.</p>
+    <a href="browse.html">Back to browse</a>
+</div>
+    <div class="content">
+        <h1 id="productType">Selected Product</h1>
+        <h2 id="displayPrice"></h2>
+        <h3>type</h3>
+        <select id="productDropdown" onchange="updateProduct()">
+            <option value="Pin">Pin</option>
+            <option value="Picture" selected>Picture</option>
+            <option value="Postcard">Postcard</option>
+        </select>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1">
+        <button onclick="updateCart()"><h3>Add to cart</h3></button>
+        <div id="confirmationmessage"></div>
+    </div>
+</div>
+<script>
+    function updateProduct() {
+        var dropdown = document.getElementById("productDropdown");
+        var selectedValue = dropdown.value;
+        var selectedQuantity = document.getElementById("quantity").value;
+
+        var prices = {
+            Pin: 5,
+            Picture: 10,
+            Postcard: 15
+        };
+
+        var selectedProductPrice = prices[selectedValue];
+
+        var displayDiv = document.getElementById("displayPrice");
+        displayDiv.textContent = "C$" + selectedProductPrice + ".00";
+
+        var productType = document.getElementById("productType");
+        productType.textContent = "East Coast Trail " + selectedValue;
+
+        var image = document.querySelector(".image");
+        var images = {
+            Pin: "images/pin.jpg",
+            Picture: "images/eastcoast.jpg",
+            Postcard: "images/postcard.jpg"
+        };
+        image.src = images[selectedValue];
+    }
+
+    function updateCart() {
+        var dropdown = document.getElementById("productDropdown");
+        var selectedValue = dropdown.value;
+        var selectedQuantity = document.getElementById("quantity").value;
+
+        var numOfProducts = localStorage.getItem('num_of_products');
+        var productName = "East Coast Trail"; // Setting the product name
+
+        if (numOfProducts === null) {
+            localStorage.setItem('num_of_products', '1');
+            localStorage.setItem('selected_product1', selectedValue);
+            localStorage.setItem('selected_quantity1', selectedQuantity);
+            localStorage.setItem('name_1', productName); // Storing the name of the product
+        } else {
+            numOfProducts = parseInt(numOfProducts);
+            numOfProducts++;
+            localStorage.setItem('num_of_products', numOfProducts.toString());
+            localStorage.setItem('selected_product' + numOfProducts, selectedValue);
+            localStorage.setItem('selected_quantity' + numOfProducts, selectedQuantity);
+            localStorage.setItem('name_' + numOfProducts, productName); // Storing the name of the product
+        }
+        document.getElementById("confirmationmessage").innerHTML = "<p>This item has been added to your cart</p> <a href='wwwcart.html'>Go to your cart</a>";
+    }
+
+    // Call the function once to display the initial price and product
+    updateProduct();
+</script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/cart.css">
+    <link rel="icon" href="images/icons8-paw-50.png" type="image/x-icon">
+    <title>Your Cart</title>
+    <script>
+      function clearCart() {
+        localStorage.clear();
+        location.reload();
+      }
+
+      var prices = {
+        Pin: 5,
+        Picture: 10,
+        Postcard: 15
+      };
+
+      var numOfProducts = localStorage.getItem('num_of_products');
+
+      if (numOfProducts !== null && numOfProducts !== "0") {
+        numOfProducts = parseInt(numOfProducts);
+        var productSummaryDiv = document.getElementById('productSummary');
+        var totalAmount = 0;
+
+        for (var i = 1; i <= numOfProducts; i++) {
+          var productName = localStorage.getItem('name_' + i);
+          var productType = localStorage.getItem('selected_product' + i);
+          var productQuantity = localStorage.getItem('selected_quantity' + i);
+
+          var productItem = document.createElement('div');
+          productItem.classList.add('productItem');
+
+          var productImg = document.createElement('img');
+          // ... Your existing image creation code ...
+
+          var productInfo = document.createElement('p');
+          productInfo.textContent = 'Name: ' + productName + ' | Type: ' + productType + ' | Quantity: ' + productQuantity;
+
+          productItem.appendChild(productImg);
+          productItem.appendChild(productInfo);
+
+          productSummaryDiv.appendChild(productItem);
+
+          var itemPrice = prices[productType] * productQuantity;
+          totalAmount += itemPrice;
+        }
+
+        var taxes = totalAmount * 0.15;
+        var grandTotal = totalAmount + taxes;
+
+        document.getElementById('price').textContent = totalAmount.toFixed(2);
+        document.getElementById('taxes').textContent = taxes.toFixed(2);
+        document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
+      } else {
+        var cartSection = document.querySelector('.cart-section');
+        cartSection.innerHTML = "<h1>Your Cart</h1><p>There are no items in your cart</p>";
+        var clearButton = document.getElementById('clearButton');
+        clearButton.style.display = 'none';
+        var emptyCartMessage = document.getElementById('emptyCartMessage');
+        emptyCartMessage.style.display = 'block';
+
+        document.getElementById('price').textContent = '0.00';
+        document.getElementById('taxes').textContent = '0.00';
+        document.getElementById('grandTotal').textContent = '0.00';
+      }
+    </script>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="images/logo.jpg" alt="Your Logo">
+    </div>
+     <ul>
+            <li><a href="compass.html">Home</a></li>
+            <li><a href="browse.html">Shop</a></li>
+            <li><a href="maybeblog.html">Blog</a></li>
+            <li><a href="wwwcontactus.html">Contact Us</a></li>
+            <li><a href="wwwaboutus.html">About Us</a></li>
+            <li><a href="wwwcart.html">Cart</a></li>
+        </ul>
+    </nav>
+
+  <div class="summary-wrapper">
+    <div class="cart-section">
+      <h1>Your Cart</h1>
+      <div id="productSummary">
+        <!-- This div will contain the summary of products -->
+      </div>
+      <button id="clearButton" onclick="clearCart()">Clear Cart</button>
+      <p id="emptyCartMessage" class="no-products" style="display: none;">No products in the cart.</p>
+    </div>
+
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <p>Price: C$<span id="price">0.00</span></p>
+      <p>Taxes (15%): C$<span id="taxes">0.00</span></p>
+      <hr>
+      <p>Grand Total: C$<span id="grandTotal">0.00</span></p>
+      <button id="orderButton">Order Now</button>
+    </div>
+  </div>
+
+  <div class="continue-wrapper">
+    <button class="continueButton" onclick="window.location.href='browse.html'">Continue Shopping</button>
+  </div>
+
+  <script>
+      function clearCart() {
+      localStorage.clear();
+      location.reload();
+    }
+
+    var prices = {
+      Pin: 5,
+      Picture: 10,
+      Postcard: 15
+    };
+
+    var numOfProducts = localStorage.getItem('num_of_products');
+
+    if (numOfProducts !== null && numOfProducts !== "0") {
+      numOfProducts = parseInt(numOfProducts);
+      var productSummaryDiv = document.getElementById('productSummary');
+      var totalAmount = 0;
+
+      for (var i = 1; i <= numOfProducts; i++) {
+        var productName = localStorage.getItem('name_' + i);
+        var productType = localStorage.getItem('selected_product' + i);
+        var productQuantity = localStorage.getItem('selected_quantity' + i);
+
+        var productItem = document.createElement('div');
+        productItem.classList.add('productItem');
+
+        var productImg = document.createElement('img');
+        if (productName === "Steady Brook") {
+          productImg.src = 'images/steadybrook.jpg';
+          productImg.alt = 'Product Image';
+        }
+        if (productName === "East Coast Trail") {
+          productImg.src = 'images/eastcoast.jpg';
+          productImg.alt = 'Product Image';
+        }
+        if (productName === "Logo") {
+          productImg.src = 'images/logo.jpg';
+          productImg.alt = 'Product Image';
+        }
+        if (productName === "Gorge Trail") {
+          productImg.src = 'images/gorgetrail.jpg';
+          productImg.alt = 'Product Image';
+        }
+        if(productName == "Tippings Pond") {
+          productImg.src = 'images/tippings.jpg';
+          productImg.alt = 'Product Image';
+        }
+        if(productName == "Cloranation Street") {
+          productImg.src = 'images/cloranationstreet.jpg';
+          productImg.alt = 'Product Image';
+        }
+        if(productName == "Cloranation Street 2") {
+          productImg.src = 'images/cloranationstreet2.jpg';
+          productImg.alt = 'Product Image';
+        }
+        if(productName == "Man in the Mountain") {
+          productImg.src = 'images/maninthemountain.jpg';
+          productImg.alt = 'Product Image';
+        }
+        if(productName == "Lake Louise") {
+          productImg.src = 'images/lakelouise.jpg';
+          productImg.alt = 'Product Image';
+        }
+        if(productName == "Hoodo In Alberta") {
+          productImg.src = 'images/hoodooalberta.jpg';
+          productImg.alt = 'Product Image';
+        }
+        var productInfo = document.createElement('p');
+        productInfo.textContent = 'Name: ' + productName + ' | Type: ' + productType + ' | Quantity: ' + productQuantity;
+
+        productItem.appendChild(productImg);
+        productItem.appendChild(productInfo);
+
+        productSummaryDiv.appendChild(productItem);
+
+        var itemPrice = prices[productType] * productQuantity;
+        totalAmount += itemPrice;
+      }
+
+      var taxes = totalAmount * 0.15;
+      var grandTotal = totalAmount + taxes;
+
+      document.getElementById('price').textContent = totalAmount.toFixed(2);
+      document.getElementById('taxes').textContent = taxes.toFixed(2);
+      document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
+    } else {
+      var cartSection = document.querySelector('.cart-section');
+      cartSection.innerHTML = "<h1>Your Cart</h1><p>There are no items in your cart</p>";
+      var clearButton = document.getElementById('clearButton');
+      clearButton.style.display = 'none';
+      var emptyCartMessage = document.getElementById('emptyCartMessage');
+      emptyCartMessage.style.display = 'block';
+
+      document.getElementById('price').textContent = '0.00';
+      document.getElementById('taxes').textContent = '0.00';
+      document.getElementById('grandTotal').textContent = '0.00';
+    }
+    document.getElementById('orderButton').addEventListener('click', function() {
+      alert("Order placed. Please wait for an email for further information.");
+    });
+  </script>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3>About Us</h3>
+        <p>Discover the adventures of Wilfred and explore our unique merchandise. Join us on exciting journeys!</p>
+      </div>
+
+      <div class="footer-section contact">
+        <h3>Contact Us</h3>
+        <p>Have questions or want to share your Wilfred adventures? Reach out to us!</p>
+        <ul>
+          <li>Email: info@wanderingwilfred.com</li>
+          <li>Phone: (123) 456-7890</li>
+          <li>Address: 123 Dogwood Lane, Adventureville</li>
+        </ul>
+      </div>
+
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="wwwaboutus.html">About Us</a></li>
+          <li><a href="wwwshop.html">Shop</a></li>
+          <li><a href="wwwblog.html">Blog</a></li>
+          <li><a href="wwwcontactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section social">
+        <h3>Connect With Us</h3>
+        <ul>
+          <li><a href="#" target="_blank">Facebook</a></li>
+          <li><a href="#" target="_blank">Twitter</a></li>
+          <li><a href="https://www.instagram.com/wanderingwithwilfred/" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2023 Wandering With Wilfred | All rights reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>
